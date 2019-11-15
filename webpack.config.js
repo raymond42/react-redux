@@ -4,12 +4,12 @@ const path = require('path');
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, '/build'),
     publicPath: '/',
     filename: 'bundle.js',
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: './build',
     historyApiFallback: true,
   },
   module: {
@@ -37,7 +37,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
     }),
   ],
 };
