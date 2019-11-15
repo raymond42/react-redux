@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --hot --inline --mode development"
+    "start": "babel-node prod-server.js",
+    "webpack-dev-server": "webpack-dev-server",
+    "server": "concurrently \" webpack-dev-server --mode=development\" \"npm run dev\""
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/raymond42/react-redux#readme",
   "dependencies": {
     "axios": "^0.19.0",
+    "express": "^4.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.12.0",
