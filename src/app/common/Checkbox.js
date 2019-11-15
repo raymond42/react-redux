@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 const Checkbox = props => {
@@ -9,14 +8,6 @@ const Checkbox = props => {
       <span className={spanClass} />
     </label>
   );
-};
-
-Checkbox.propTypes = {
-  checked: PropTypes.bool.isRequired,
-  name: PropTypes.string,
-  markComplete: PropTypes.func.isRequired,
-  labelClass: PropTypes.string,
-  spanClass: PropTypes.string,
 };
 
 Checkbox.defaultProps = {

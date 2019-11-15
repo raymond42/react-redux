@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
-import Checkbox from './common/Checkbox';
-import Button from './common/Button';
+import Checkbox from '../../app/common/Checkbox';
+import Button from '../../app/common/Button';
 
 class TodoItem extends Component {
   constructor(props) {
@@ -37,11 +36,5 @@ class TodoItem extends Component {
     );
   }
 }
-
-TodoItem.propTypes = {
-  todo: PropTypes.object.isRequired,
-  markComplete: PropTypes.func.isRequired,
-  delTodo: PropTypes.func.isRequired,
-};
 
 export default TodoItem;
