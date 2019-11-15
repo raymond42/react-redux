@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
-import Button from './common/Button';
-import Input from './common/Input';
+import { connect } from 'react-redux';
+import Button from '../../app/common/Button';
+import Input from '../../app/common/Input';
+import { addTodo } from '../../redux/actions';
 
 class AddTodo extends Component {
   state = {
@@ -13,10 +14,13 @@ class AddTodo extends Component {
 
   onClick = e => {
     e.preventDefault();
-    const { addTodo } = this.props;
+    const { addTodo, history } = this.props;
     const { title } = this.state;
-    addTodo(title);
-    this.setState({ title: '' });
+    if (title) {
+      addTodo(title);
+      this.setState({ title: '' });
+      history.push('/todos');
+    }
   };
 
   render() {
@@ -32,9 +36,13 @@ class AddTodo extends Component {
   }
 }
 
-// PropTypes
-AddTodo.propTypes = {
-  addTodo: PropTypes.func.isRequired,
+const mapStateToProps = ({ todos, created }) => ({
+  todos,
+  created,
+});
+
+const mapDispatchToProps = {
+  addTodo,
 };
 
-export default AddTodo;
+export default connect(mapStateToProps, mapDispatchToProps)(AddTodo);
