@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Button from './component/common/Button';
+import Input from './component/common/Input';
 
 class App extends Component {
   state = {
@@ -8,7 +10,12 @@ class App extends Component {
   render() {
     const { text } = this.state;
     return (
-      <h1>{text}</h1>
+      <div>
+        <Input />
+        <Button type="submit" myClass="btn-primary">
+          {text}
+        </Button>
+      </div>
     );
   }
 }
