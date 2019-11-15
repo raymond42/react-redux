@@ -1,42 +1,41 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.join(__dirname, '/dist'),
-    publicPath: '/',
-    filename: 'bundle.js',
-  },
-  devServer: {
-    contentBase: './dist',
+    path: path.resolve(__dirname, 'build/'),
+    filename: 'index_bindle.js',
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.html$/,
+        test: /\.(sa|sc)ss$/,
         use: [
+          { loader: 'style-loader' },
           {
-            loader: 'html-loader',
+            loader: 'css-loader',
+            options: {
+              modules: false,
+            },
           },
+          { loader: 'sass-loader' },
         ],
       },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
+      { test: /\.(js)$/, use: 'babel-loader' },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
     ],
   },
+  mode: 'development',
+  node: {
+    fs: 'empty',
+  },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: './src/index.html',
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };

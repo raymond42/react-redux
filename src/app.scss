@@ -1,12 +1,13 @@
+  
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Nunito:300,400,700,900|Nunito+Sans|Playfair+Display:400,700,900');
 
 // Define a color variable
-$info: #eaf4fd;
+$info: #0d70c7;
 $info-dark: #daeeff;
 $primary: #1c4b82;
-$danger: #ff3e6d;
+$danger: #fc1919;
 $primary-dark: #183661;
-$secondary: #fd5f00;
+$secondary: #000000;
 $dark: #313848;
 $light: rgb(255, 248, 248);
 
@@ -44,7 +45,26 @@ $light: rgb(255, 248, 248);
     justify-content: space-between;
     padding: 12px;
   }
-
+.home-button{
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  border-radius: 5px;
+  width: 500px;
+  height: 45px;
+  margin: 2.5em;
+  background: rgb(24, 133, 184);
+  cursor: pointer;
+}
+.start-button{
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  border-radius: 5px;
+  width: 500px;
+  height: 45px;
+  margin: 2.5em;
+  background: rgb(24, 133, 184);
+  cursor: pointer;
+}
   .row-items {
     display: flex;
     border-radius: 0;
@@ -156,5 +176,22 @@ $light: rgb(255, 248, 248);
     .slider.round:before {
       border-radius: 50%;
     }
+  }
+
+  /* Change Autocomplete styles in Chrome*/
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid rgb(218, 217, 217);
+    -webkit-text-fill-color: #000;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
   }
 }

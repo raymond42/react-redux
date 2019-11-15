@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Input = ({ placeholder, name, onChange, type, myClass, value }) => (
   <input
@@ -11,15 +10,6 @@ const Input = ({ placeholder, name, onChange, type, myClass, value }) => (
     className={`text-input ${myClass}`}
   />
 );
-
-Input.propTypes = {
-  name: PropTypes.string,
-  type: PropTypes.string,
-  placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  myClass: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-};
 
 Input.defaultProps = {
   name: 'title',
